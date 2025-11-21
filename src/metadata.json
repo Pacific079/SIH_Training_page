@@ -1,0 +1,5 @@
+{
+  "name": "PowerSim: 400kV Substation Trainer",
+  "description": "A professional-grade training simulation platform for substation engineers featuring interactive SCADA operations, safety interlock logic, and AI-powered fault analysis.",
+  "requestFramePermissions": []
+}
