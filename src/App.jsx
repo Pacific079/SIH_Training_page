@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { SimulationProvider, useSimulation } from "./context/SimulationContext";
-import SimulationPage from "./pages/SimulationPage";
-import Dashboard from "./pages/Dashboard";
+import { SimulationPage, Dashboard } from "./pages";
 
 const AppContent = () => {
   const [currentView, setCurrentView] = useState("dashboard");

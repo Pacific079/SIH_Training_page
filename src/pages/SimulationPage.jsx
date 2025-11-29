@@ -1,8 +1,5 @@
 import React from 'react';
-import ScadaDiagram from '../components/ScadaDiagram';
-import ControlPanel from '../components/ControlPanel';
-import LogPanel from '../components/LogPanel';
-import AiAssistant from '../components/AiAssistant';
+import { ScadaDiagram, ControlPanel, LogPanel, AiAssistant } from '../components';
 import { useSimulation } from '../context/SimulationContext';
 import { SCENARIOS } from "../constants";
 
