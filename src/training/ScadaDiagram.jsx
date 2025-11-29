@@ -1,5 +1,5 @@
 import React from "react";
-import { useSimulation } from "../context/SimulationContext";
+import { useSimulation } from "./SimulationContext.jsx";
 
 const ScadaDiagram = () => {
   const { nodes, selectNode, selectedNodeId } = useSimulation();
@@ -15,7 +15,6 @@ const ScadaDiagram = () => {
     SELECTED: "#3b82f6",
   };
 
-  // Since TS enums are gone, use plain string matching
   const getColor = (node) => {
     if (!node) return COLORS.DEAD_LINE;
     if (node.state === "TRIPPED") return COLORS.TRIP;

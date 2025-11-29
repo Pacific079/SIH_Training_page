@@ -1,8 +1,5 @@
 import { GoogleGenAI } from "@google/genai";
 
-// No TypeScript types — just plain JS.
-// Instead of LogEntry[] or SimulationNode[], we treat them as normal arrays.
-
 // Create Gemini client
 const getClient = () => {
   const apiKey = process.env.API_KEY;
@@ -15,15 +12,12 @@ export const analyzeAction = async (logs, nodes, lastAction) => {
   const client = getClient();
   if (!client) return "Gemini API Key not configured. AI Tutor is offline.";
 
-  // Build summary of current substation state
   const stateSummary = nodes
     .map(
-      (n) =>
-        `${n.name} (${n.type}): ${n.state} [${n.isEnergized ? "LIVE" : "DEAD"}]`
+      (n) => `${n.name} (${n.type}): ${n.state} [${n.isEnergized ? "LIVE" : "DEAD"}]`
     )
     .join("\n");
 
-  // Show last 5 logs
   const recentLogs = logs
     .slice(-5)
     .map((l) => `[${l.type}] ${l.message}`)

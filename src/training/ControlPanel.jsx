@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSimulation } from '../context/SimulationContext';
+import { useSimulation } from './SimulationContext.jsx';
 
 const ControlPanel = () => {
   const { nodes, selectedNodeId, operateComponent } = useSimulation();
@@ -93,7 +93,7 @@ const ControlPanel = () => {
             System Interlocks
           </h4>
 
-          <div className="bg-slate-50 rounded-lg p-4 border border-slate-200 space-y-2">
+          <div className="bg-slate-50 rounded-lg p-4 mb-4 border border-slate-200 space-y-2">
             {!selectedNode.interlocks?.requiredOpen &&
               !selectedNode.interlocks?.requiredClosed && (
                 <div className="flex items-center gap-2 text-slate-500 text-sm">

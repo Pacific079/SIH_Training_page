@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { useSimulation } from '../context/SimulationContext';
+import { useSimulation } from './SimulationContext.jsx';
 
 const LogPanel = () => {
   const { logs } = useSimulation();

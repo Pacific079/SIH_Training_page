@@ -1,7 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, useCallback, useRef } from 'react';
-import { ComponentState, ComponentType } from "../constants";
-import { INITIAL_SUBSTATION_NODES, SCENARIOS } from "../constants";
-
+import { ComponentState, ComponentType, INITIAL_SUBSTATION_NODES, SCENARIOS } from './constants.js';
 
 const SimulationContext = createContext(undefined);
 

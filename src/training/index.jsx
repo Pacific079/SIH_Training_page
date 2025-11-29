@@ -1,21 +1,21 @@
-import React, { useState } from "react";
-import { SimulationProvider, useSimulation } from "./context/SimulationContext";
-import { SimulationPage, Dashboard } from "./pages";
+import React, { useState } from 'react'
+import { useSimulation } from './SimulationContext.jsx'
+import Dashboard from './Dashboard.jsx'
+import SimulationPage from './SimulationPage.jsx'
 
-const AppContent = () => {
-  const [currentView, setCurrentView] = useState("dashboard");
-  const { loadScenario } = useSimulation();
+// Training: central component that composes pages and exposes a simple view switch
+export default function Training() {
+  const [currentView, setCurrentView] = useState('dashboard')
+  const { loadScenario } = useSimulation()
 
   const handleLaunch = (scenarioId) => {
-    if (scenarioId) {
-      loadScenario(scenarioId);
-    }
-    setCurrentView("simulation");
-  };
+    if (scenarioId) loadScenario(scenarioId)
+    setCurrentView('simulation')
+  }
 
   return (
     <>
-      {currentView === "dashboard" ? (
+      {currentView === 'dashboard' ? (
         <Dashboard onLaunch={handleLaunch} />
       ) : (
         <div className="relative h-screen">
@@ -23,7 +23,7 @@ const AppContent = () => {
 
           {/* Back to Dashboard Button */}
           <button
-            onClick={() => setCurrentView("dashboard")}
+            onClick={() => setCurrentView('dashboard')}
             className="fixed bottom-6 left-6 z-50 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white p-3 rounded-full border border-slate-600 shadow-xl transition-all hover:scale-110"
             title="Return to Dashboard"
           >
@@ -45,17 +45,5 @@ const AppContent = () => {
         </div>
       )}
     </>
-  );
-};
-
-const App = () => {
-  return (
-    <div className="antialiased font-sans text-slate-100 selection:bg-blue-500 selection:text-white">
-      <SimulationProvider>
-        <AppContent />
-      </SimulationProvider>
-    </div>
-  );
-};
-
-export default App;
+  )
+}

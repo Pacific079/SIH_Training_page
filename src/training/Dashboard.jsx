@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { SCENARIOS } from "../constants";
-import { generateScenarioDescription } from "../services/geminiService";
+import { SCENARIOS } from "./constants.js";
+import { generateScenarioDescription } from "./geminiService.js";
 
 const Dashboard = ({ onLaunch }) => {
   const [descriptions, setDescriptions] = useState({});

@@ -4,12 +4,12 @@ export const ComponentType = {
   ISOLATOR: "ISOLATOR",
   BREAKER: "BREAKER",
   LINE: "LINE",
-  GROUND: "GROUND"
+  GROUND: "GROUND",
 };
 
 export const ComponentState = {
   OPEN: "OPEN",
-  CLOSED: "CLOSED"
+  CLOSED: "CLOSED",
 };
 
 // A simplified 400kV Bay setup (Double Busbar arrangement)
@@ -21,7 +21,7 @@ export const INITIAL_SUBSTATION_NODES = [
     state: ComponentState.CLOSED,
     voltageKv: 400,
     isEnergized: true,
-    connectedTo: ["ISO-A-1"]
+    connectedTo: ["ISO-A-1"],
   },
   {
     id: "BUS-B",
@@ -30,7 +30,7 @@ export const INITIAL_SUBSTATION_NODES = [
     state: ComponentState.CLOSED,
     voltageKv: 400,
     isEnergized: true,
-    connectedTo: ["ISO-B-1"]
+    connectedTo: ["ISO-B-1"],
   },
 
   // BAY 1 - LINE FEEDER
@@ -43,8 +43,8 @@ export const INITIAL_SUBSTATION_NODES = [
     isEnergized: true,
     connectedTo: ["BUS-A", "CB-1"],
     interlocks: {
-      requiredOpen: ["CB-1", "ISO-B-1"]
-    }
+      requiredOpen: ["CB-1", "ISO-B-1"],
+    },
   },
   {
     id: "ISO-B-1",
@@ -55,8 +55,8 @@ export const INITIAL_SUBSTATION_NODES = [
     isEnergized: false,
     connectedTo: ["BUS-B", "CB-1"],
     interlocks: {
-      requiredOpen: ["CB-1", "ISO-A-1"]
-    }
+      requiredOpen: ["CB-1", "ISO-A-1"],
+    },
   },
   {
     id: "CB-1",
@@ -65,7 +65,7 @@ export const INITIAL_SUBSTATION_NODES = [
     state: ComponentState.CLOSED,
     voltageKv: 400,
     isEnergized: true,
-    connectedTo: ["ISO-A-1", "ISO-B-1", "ISO-L-1"]
+    connectedTo: ["ISO-A-1", "ISO-B-1", "ISO-L-1"],
   },
   {
     id: "ISO-L-1",
@@ -76,8 +76,8 @@ export const INITIAL_SUBSTATION_NODES = [
     isEnergized: true,
     connectedTo: ["CB-1", "LINE-1"],
     interlocks: {
-      requiredOpen: ["CB-1", "ES-1"]
-    }
+      requiredOpen: ["CB-1", "ES-1"],
+    },
   },
   {
     id: "LINE-1",
@@ -86,7 +86,7 @@ export const INITIAL_SUBSTATION_NODES = [
     state: ComponentState.CLOSED,
     voltageKv: 400,
     isEnergized: true,
-    connectedTo: ["ISO-L-1"]
+    connectedTo: ["ISO-L-1"],
   },
   {
     id: "ES-1",
@@ -97,9 +97,9 @@ export const INITIAL_SUBSTATION_NODES = [
     isEnergized: false,
     connectedTo: ["LINE-1"],
     interlocks: {
-      requiredOpen: ["ISO-L-1"]
-    }
-  }
+      requiredOpen: ["ISO-L-1"],
+    },
+  },
 ];
 
 export const SCENARIOS = [
@@ -107,19 +107,19 @@ export const SCENARIOS = [
     id: "sc-1",
     title: "Bus Changeover Routine",
     description: "Transfer load from Bus A to Bus B without interrupting supply.",
-    difficulty: "Intermediate"
+    difficulty: "Intermediate",
   },
   {
     id: "sc-2",
     title: "Line Fault Clearance",
     description: "Diagnose and isolate a permanent fault on Line 1.",
     difficulty: "Advanced",
-    initialFaults: ["LINE-1"]
+    initialFaults: ["LINE-1"],
   },
   {
     id: "sc-3",
     title: "Maintenance Isolation",
     description: "Safely isolate Circuit Breaker 52 for scheduled maintenance.",
-    difficulty: "Beginner"
-  }
+    difficulty: "Beginner",
+  },
 ];

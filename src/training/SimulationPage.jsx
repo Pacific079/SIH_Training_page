@@ -1,7 +1,10 @@
 import React from 'react';
-import { ScadaDiagram, ControlPanel, LogPanel, AiAssistant } from '../components';
-import { useSimulation } from '../context/SimulationContext';
-import { SCENARIOS } from "../constants";
+import ScadaDiagram from './ScadaDiagram.jsx'
+import ControlPanel from './ControlPanel.jsx'
+import LogPanel from './LogPanel.jsx'
+import AiAssistant from './AiAssistant.jsx'
+import { useSimulation } from './SimulationContext.jsx'
+import { SCENARIOS } from './constants.js'
 
 const SimulationPage = () => {
   const { resetSimulation, injectFault, systemHealth, activeLoadMw, loadScenario, currentScenarioId } = useSimulation();

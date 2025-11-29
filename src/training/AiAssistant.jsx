@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useSimulation } from '../context/SimulationContext';
-import { analyzeAction } from '../services/geminiService';
+import { useSimulation } from './SimulationContext.jsx';
+import { analyzeAction } from './geminiService.js';
 
 const AiAssistant = () => {
   const { logs, nodes } = useSimulation();
@@ -23,7 +23,7 @@ const AiAssistant = () => {
 
       fetchAnalysis();
     }
-  }, [logs.length]);  // safe in JS
+  }, [logs.length]);
 
   return (
     <div className="bg-white h-full flex flex-col relative overflow-hidden">
